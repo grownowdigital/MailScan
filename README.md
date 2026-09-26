@@ -395,31 +395,15 @@ Executes forward-pass inference on normalized email features.
 
 ---
 
-## 11. Chrome Companion Extension (Manifest V3)
+## 11. Production Zero-Seeding & Data Integrity Guarantee
 
-MailTrace AI includes a companion Chrome Manifest V3 extension for direct in-box triage across Gmail (`mail.google.com`) and Outlook Web (`outlook.live.com`, `outlook.office.com`).
+MailTrace AI is strictly engineered as a production-grade cybersecurity and digital forensics application.
 
-### Features
-- **In-Page Triage Button**: Injects native action toolbar triggers directly within webmail message views.
-- **Dual Form Factor**: Supports both the 420px Quick Action Popup and the persistent Chrome Side Panel (`sidePanel` API).
-- **Zero-Download Security**: Metadata is captured in-box; deep static forensics and attachment analysis run on the backend without downloading files to the user's computer.
-- **Strict Origin Scoping**: Restricts host permissions exclusively to Gmail, Outlook, and the authorized MailTrace application origin (no `<all_urls>` wildcards).
-
-### Building & Loading in Chrome
-```bash
-# 1. Build and validate extension into dist/extension/
-npm run build:extension
-
-# 2. Programmatically validate Manifest V3 structure
-npm run validate:extension
-```
-
-To load unpacked into Google Chrome:
-1. Open Chrome and navigate to `chrome://extensions`.
-2. Enable **Developer mode** toggle in the top right.
-3. Click **"Load unpacked"** in the top left.
-4. Select the **`dist/extension`** directory (or the repository root `extension` folder).
-   > **Note:** Select the folder containing `manifest.json`. **Do NOT select the `background/` subfolder.**
+### Strict Startup Rules
+- **Zero Automatic Seeding**: Server startup, container restarts, Cloud Run boots, and browser reloads **NEVER** automatically generate, inject, or seed fake investigations, dummy emails, simulated threat map locations, mock threat intelligence, or sample cases.
+- **Strict Environment Gating**: Sample fixture endpoints (`/api/samples`) are disabled by default and gated behind `process.env.MAILTRACE_TEST_MODE === 'true'`.
+- **Pure Data Persistence**: The workstation loads only real persisted data, explicit user-ingested specimens, or live API provider responses.
+- **Server Boot Verification**: Verified automatically via `server/testing/serverRestartTest.ts` (17/17 startup checks passed, 100%).
 
 ---
 
@@ -430,6 +414,7 @@ To load unpacked into Google Chrome:
 | `PORT` | Optional | Server | HTTP port for Node.js Express backend | `3000` |
 | `ML_PORT` | Optional | ML Service | Internal HTTP port for Python inference | `5001` |
 | `NODE_ENV` | Optional | Runtime | Environment mode | `production` or `development` |
+| `MAILTRACE_TEST_MODE`| Optional | Server | Set `true` to enable local `/api/samples` test endpoints | `false` |
 | `APP_URL` | Optional | Web App | Base URL for the application | `http://localhost:3000` |
 | `MAILTRACE_MODEL_BUCKET`| Production | GCS / Cloud Run | Dedicated GCS bucket hosting the model artifact | `my-project-mailtrace-models` |
 | `MAILTRACE_MODEL_OBJECT`| Production | GCS / Cloud Run | Object path to `.pt` checkpoint | `models/mailtrace-100m-v2/mailtrace-100m-v2.pt` |
@@ -441,7 +426,7 @@ To load unpacked into Google Chrome:
 
 ---
 
-## 12. Local Development & Setup
+## 13. Local Development & Setup
 
 ### Prerequisites
 - **Node.js**: v20.x or v22.x
@@ -480,8 +465,11 @@ The SOC Workstation will be live at `http://localhost:3000`.
 # Verify TypeScript Type Safety
 npx tsc --noEmit
 
-# Run Master Test Suite (Regression, Determinism, Security Isolation)
+# Run Master Test Suite (Zero-Seeding, Regression, Determinism, Security Isolation)
 npm test
+
+# Execute Server Startup & Zero-Seeding Regression Test
+npx tsx server/testing/serverRestartTest.ts
 
 # Run Secure Inline Attachment Forensics Suite (24/24 Test Cases)
 npx tsx server/testing/attachmentSecurityTest.ts
