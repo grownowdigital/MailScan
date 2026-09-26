@@ -67,9 +67,6 @@ export const TopHeader: React.FC<TopHeaderProps> = ({
             <div className="flex flex-col leading-none">
               <div className="flex items-center gap-1.5">
                 <span className="font-headline font-bold text-base text-slate-900 tracking-tight">MailTrace</span>
-                <span className="text-[10px] uppercase font-mono tracking-wider px-1.5 py-0.5 rounded bg-indigo-50 text-indigo-700 font-semibold border border-indigo-200">
-                  Enterprise SOC
-                </span>
               </div>
               <span className="text-[10px] text-slate-500 font-normal mt-0.5">
                 Forensic Workstation
@@ -147,21 +144,6 @@ export const TopHeader: React.FC<TopHeaderProps> = ({
             <UploadCloud className="w-3.5 h-3.5" />
             <span>Ingest Specimen</span>
           </button>
-
-          {/* Analyst Avatar Badge */}
-          <div className="flex items-center gap-2 pl-1 border-l border-slate-200">
-            <div className="relative cursor-pointer" title="Active Analyst: Dev Sharma (SOC L3 Lead)">
-              <div className="w-7 h-7 rounded bg-indigo-700 text-white flex items-center justify-center font-headline font-semibold text-[11px] border border-indigo-300 shadow-xs">
-                DS
-              </div>
-              <span className="absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-500 ring-1 ring-white" />
-            </div>
-            <div className="hidden xl:flex flex-col text-left leading-tight">
-              <span className="text-xs font-semibold text-slate-900">Dev Sharma</span>
-              <span className="text-[10px] text-slate-500">SOC L3 Lead</span>
-            </div>
-          </div>
-
         </div>
 
       </div>

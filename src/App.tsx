@@ -697,7 +697,7 @@ export default function App() {
           <footer className="pt-4 border-t border-slate-200 text-slate-500 text-[11px] font-mono flex flex-col sm:flex-row items-center justify-between gap-2 pb-6">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-500" />
-              <span>MailTrace Enterprise SOC Workstation • RFC 5322 Ingestion Active</span>
+              <span>MailTrace Workstation • RFC 5322 Ingestion Active</span>
             </div>
             <div>
               <span>Network geolocation and IP hops identify infrastructure, never human individuals.</span>

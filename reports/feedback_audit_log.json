@@ -2207,5 +2207,83 @@
         "sender": "Bank of Baroda <noreply@bankofbaroda.bank.in>"
       }
     }
+  },
+  {
+    "id": "AUDIT-1ECAA7F0",
+    "timestamp": "2026-09-26T18:18:06.617Z",
+    "action": "ANALYST_VERIFICATION_CREATED",
+    "actor": "analyst.soc@mailtrace.workstation",
+    "actorRole": "SOC L3 Lead",
+    "feedbackId": "FB-F29CA1C9667B",
+    "analysisId": "analysis-1790446668325-cb4feb6f",
+    "modelVersion": "mailtrace-100m-v2",
+    "details": "Analyst verified [SPAM] Did You Get Your Free EDT Yet?: Pred=\"Phishing\" -> GT=\"Legitimate\" (Verdict: Legitimate, Status: VERIFIED, Weight: 2.00)",
+    "newState": {
+      "id": "FB-F29CA1C9667B",
+      "feedbackId": "FB-F29CA1C9667B",
+      "analysisId": "analysis-1790446668325-cb4feb6f",
+      "emailFingerprint": "d251b50433c2853a826417fb47fdad223b3fc6181cc2f2f6de6387b09441fcdc",
+      "contentHash": "9dcd7fcb6fadd6a108cfbd5631a2f77e8ded1cdd269cd0c9a2f6aded7edef076",
+      "urlFingerprint": "87ccc0cefba8ea6c",
+      "emailSubject": "[SPAM] Did You Get Your Free EDT Yet?",
+      "sender": "\"The Coolest Multi Tool\" <contact@theultimatesurvival.bid>",
+      "originalPrediction": {
+        "primaryCategory": "Phishing",
+        "secondaryCategories": [],
+        "threatRisk": 85,
+        "spamBulkScore": 4,
+        "confidence": 90,
+        "probabilities": {
+          "Phishing": 0.85
+        },
+        "detectedTechniques": [
+          "DISPLAY_NAME_SPOOFING - Display Name Identity Spoofing",
+          "IDENTITY_DECEPTION - Sender / Reply-To Routing Discrepancy"
+        ],
+        "evidence": []
+      },
+      "verifiedGroundTruth": {
+        "primaryCategory": "Legitimate",
+        "secondaryCategories": [],
+        "verdict": "Legitimate",
+        "isMalicious": false,
+        "isSpam": false,
+        "correctedEvidence": []
+      },
+      "classificationType": "CONFIRMED_THREAT",
+      "isHardNegative": true,
+      "isHardPositive": false,
+      "sampleWeight": 2,
+      "analyst": {
+        "id": "analyst.soc@mailtrace.workstation",
+        "name": "SOC Verification Analyst",
+        "role": "SOC L3 Lead",
+        "confidence": 0.95
+      },
+      "reason": "Analyst verified model verdict.",
+      "notes": "",
+      "status": "VERIFIED",
+      "trainingEligible": true,
+      "createdAt": "2026-09-26T18:18:06.617Z",
+      "verifiedAt": "2026-09-26T18:18:06.617Z",
+      "modelVersion": "mailtrace-100m-v2",
+      "rawEmailSample": {
+        "subject": "[SPAM] Did You Get Your Free EDT Yet?",
+        "bodyText": "[SPAM] Did You Get Your Free EDT Yet?",
+        "urls": [
+          "http://theultimatesurvival.bid/zfcG0umfLpjPd4H1F-Fq4wNjClvjTJ1xNkCJ8CsxA2yB",
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd",
+          "http://www.w3.org/1999/xhtml",
+          "http://theultimatesurvival.bid/ejmKN0YuGMTFZo4q-I3YI3jUStGZ4x1grgDsSw4E7rGe",
+          "http://theultimatesurvival.bid/i625tIhUojZlhy5A7pK2WMyiQghBfdVQ9Fq0G2UeLMFl",
+          "http://theultimatesurvival.bid/b96eab8bc00c097174.png",
+          "http://theultimatesurvival.bid/KoIvQtW0N1eoOY9kGPddje_SnkeC-aB87TYe0R6ePXGi",
+          "http://theultimatesurvival.bid/16884025599d0b9eb3.jpg",
+          "http://theultimatesurvival.bid/Q7mQpQ-vpDVqw84B53M_Fw4Rasnl8yzMlgBv9wlwUM4f",
+          "http://theultimatesurvival.bid/979347004fd931256c.jpg"
+        ],
+        "sender": "\"The Coolest Multi Tool\" <contact@theultimatesurvival.bid>"
+      }
+    }
   }
 ]
