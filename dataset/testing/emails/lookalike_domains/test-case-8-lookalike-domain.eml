@@ -1,0 +1,8 @@
+Authentication-Results: spf=softfail; dkim=none; dmarc=fail
+From: "HR Department" <payroll@enterprlse.com>
+To: employee@enterprise.com
+Subject: Updated Employee Compensation and Direct Deposit Portal
+Date: Mon, 16 Sep 2026 15:00:00 +0000
+Content-Type: text/html; charset="UTF-8"
+
+<html><body><p>Please review and sign your updated compensation review here:</p><p><a href="http://portal.enterprlse.com/direct-deposit">Access HR Portal</a></p></body></html>

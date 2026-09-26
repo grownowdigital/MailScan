@@ -1,0 +1,8 @@
+Authentication-Results: spf=fail smtp.mailfrom=google-admin-notice.com; dkim=none; dmarc=fail
+From: "Google Workspace Administrator" <admin@google-admin-notice.com>
+To: staff@enterprise.com
+Subject: Google Drive Storage Full: Incoming emails are being blocked
+Date: Mon, 16 Sep 2026 20:00:00 +0000
+Content-Type: text/html; charset="UTF-8"
+
+<html><body><p>Your Google Drive storage is 100% full. Upgrade storage immediately to prevent email loss:</p><p><a href="http://google-drive-quota-upgrade.com/login">Upgrade Storage Quota</a></p></body></html>

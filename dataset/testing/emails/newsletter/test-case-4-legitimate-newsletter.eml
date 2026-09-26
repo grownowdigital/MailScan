@@ -1,0 +1,9 @@
+Authentication-Results: spf=pass smtp.mailfrom=newsletters.wired.com; dkim=pass header.d=wired.com; dmarc=pass header.from=wired.com
+List-Unsubscribe: <https://newsletters.wired.com/unsub?id=88231>
+From: "WIRED Daily Dispatch" <newsletters@wired.com>
+To: subscriber@enterprise.com
+Subject: The Future of Quantum Computing and Enterprise Cyber Defense
+Date: Mon, 16 Sep 2026 12:00:00 +0000
+Content-Type: text/html; charset="UTF-8"
+
+<html><body><h2>Today's Top Story</h2><p>Quantum-safe cryptography reaches production standards.</p><p><a href="https://www.wired.com/story/quantum-computing-standard/">Read Full Article</a></p><hr><p><a href="https://newsletters.wired.com/unsub?id=88231">Unsubscribe</a></p></body></html>

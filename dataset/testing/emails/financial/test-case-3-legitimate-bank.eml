@@ -1,0 +1,8 @@
+Authentication-Results: spf=pass smtp.mailfrom=chase.com; dkim=pass header.d=chase.com; dmarc=pass header.from=chase.com
+From: "Chase Bank Commercial Services" <alerts@chase.com>
+To: finance.admin@enterprise.com
+Subject: Your Monthly Commercial Account Statement is Ready
+Date: Mon, 16 Sep 2026 11:00:00 +0000
+Content-Type: text/html; charset="UTF-8"
+
+<html><body><p>Dear Customer,</p><p>Your monthly statement ending in 4491 is now available in Chase Commercial Online.</p><p><a href="https://www.chase.com/commercial-banking">Log in to view statements</a></p></body></html>

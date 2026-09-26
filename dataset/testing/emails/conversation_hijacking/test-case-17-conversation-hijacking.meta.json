@@ -1,0 +1,26 @@
+{
+  "id": "test-case-17-conversation-hijacking",
+  "name": "17. Conversation Hijacking / Thread Insertion",
+  "description": "Hijacked existing email thread with forged supplier payment change",
+  "category": "Business Email Compromise",
+  "file": "emails/conversation_hijacking/test-case-17-conversation-hijacking.eml",
+  "sha256": "24e083671bbf6b3999fb6007554ea067aa852ce63e496b0785323a5668a14676",
+  "groundTruth": "Business Email Compromise",
+  "isHardNegative": false,
+  "expected": {
+    "classification": [
+      "Business Email Compromise",
+      "Financial Fraud",
+      "Phishing"
+    ],
+    "threatRiskMin": 70,
+    "action": [
+      "block",
+      "quarantine"
+    ]
+  },
+  "tags": [
+    "thread_hijacking",
+    "supplier_spoof"
+  ]
+}

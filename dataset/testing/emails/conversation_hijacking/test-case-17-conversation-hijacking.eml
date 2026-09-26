@@ -1,0 +1,10 @@
+Authentication-Results: spf=fail; dkim=none; dmarc=fail
+From: "Supplier Contact" <contact@suppller-parts.com>
+In-Reply-To: <PREV-THREAD-9921@enterprise.com>
+References: <PREV-THREAD-9921@enterprise.com>
+To: procurement@enterprise.com
+Subject: Re: Purchase Order PO-99182 Status & Delivery Schedule
+Date: Mon, 16 Sep 2026 19:30:00 +0000
+Content-Type: text/plain; charset="UTF-8"
+
+Thanks for your patience. As previously discussed in this thread, please ensure the balance payment of $82,400 is sent to our updated bank details.

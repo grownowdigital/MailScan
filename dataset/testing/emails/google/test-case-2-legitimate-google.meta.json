@@ -1,0 +1,23 @@
+{
+  "id": "test-case-2-legitimate-google",
+  "name": "2. Legitimate Google Email",
+  "description": "Authentic Google Workspace account alert with strict SPF/DKIM verification",
+  "category": "Legitimate",
+  "file": "emails/google/test-case-2-legitimate-google.eml",
+  "sha256": "92f39eadf4ec159e26c6a116617c7fd5fe5e290932f10ad7ef67d224c5c038ff",
+  "groundTruth": "Legitimate",
+  "isHardNegative": false,
+  "expected": {
+    "classification": [
+      "Legitimate"
+    ],
+    "threatRiskMax": 15,
+    "action": [
+      "allow"
+    ]
+  },
+  "tags": [
+    "legitimate",
+    "google"
+  ]
+}

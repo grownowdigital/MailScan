@@ -16,6 +16,7 @@ import { TestDatasetLoader } from './testDatasetLoader.js';
 import { runRegressionTestSuite } from '../regressionTestSuite.js';
 import { runDeterminismTests } from './determinismTest.js';
 import { runSecurityIsolationTests } from './securityIsolationTest.js';
+import { runServerRestartTest } from './serverRestartTest.js';
 
 export async function runAllMailTraceTests() {
   console.log('===============================================================');
@@ -24,8 +25,12 @@ export async function runAllMailTraceTests() {
 
   const startTime = Date.now();
 
+  // 0. Zero-Seeding & Server Restart Verification
+  console.log('>>> [0/5] EXECUTING SERVER RESTART & ZERO-SEEDING REGRESSION TEST ...');
+  const startupTest = runServerRestartTest();
+
   // 1. Dataset Loader & Quality Verification
-  console.log('>>> [1/4] DISCOVERING AUTHORITATIVE TEST DATA FROM dataset/testing/ ...');
+  console.log('>>> [1/5] DISCOVERING AUTHORITATIVE TEST DATA FROM dataset/testing/ ...');
   const loader = new TestDatasetLoader();
   const testCases = loader.loadAllTestCases();
   const qualityReport = loader.getQualityReport();
@@ -38,22 +43,22 @@ export async function runAllMailTraceTests() {
   console.log('    ✓ Saved reports/testing_dataset_report.json\n');
 
   // 2. Real Regression Suite (loaded from dataset/testing/)
-  console.log('>>> [2/4] EXECUTING REGRESSION SUITE AGAINST AUTHORITATIVE PIPELINE ...');
+  console.log('>>> [2/5] EXECUTING REGRESSION SUITE AGAINST AUTHORITATIVE PIPELINE ...');
   const regressionSummary = await runRegressionTestSuite();
   console.log(`    Regression Result: ${regressionSummary.passedCount}/${regressionSummary.totalCases} PASSED (${regressionSummary.passRate}%)\n`);
 
   // 3. Determinism Suite
-  console.log('>>> [3/4] EXECUTING DETERMINISM SUITE (3 PASSES PER TEST CASE) ...');
+  console.log('>>> [3/5] EXECUTING DETERMINISM SUITE (3 PASSES PER TEST CASE) ...');
   const determinismSummary = await runDeterminismTests(3);
   console.log(`    Determinism Result: ${determinismSummary.passed}/${determinismSummary.totalTested} PASSED (${determinismSummary.passRate}%)\n`);
 
   // 4. Security Isolation & Sandboxing Suite
-  console.log('>>> [4/4] EXECUTING SECURITY ISOLATION & SANDBOXING SUITE ...');
+  console.log('>>> [4/5] EXECUTING SECURITY ISOLATION & SANDBOXING SUITE ...');
   const securitySummary = await runSecurityIsolationTests();
   console.log(`    Security Isolation Result: ${securitySummary.passed}/${securitySummary.total} PASSED (${securitySummary.passRate}%)\n`);
 
   const durationMs = Date.now() - startTime;
-  const allPassed = regressionSummary.failedCount === 0 && determinismSummary.failed === 0 && securitySummary.failed === 0;
+  const allPassed = startupTest.passed && regressionSummary.failedCount === 0 && determinismSummary.failed === 0 && securitySummary.failed === 0;
 
   // Compile Comprehensive Testing Report
   const testingReportJson = {

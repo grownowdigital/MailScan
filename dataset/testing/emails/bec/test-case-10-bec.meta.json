@@ -1,0 +1,27 @@
+{
+  "id": "test-case-10-bec",
+  "name": "10. Business Email Compromise (BEC)",
+  "description": "CEO impersonation requesting immediate confidential wire transfer",
+  "category": "Business Email Compromise",
+  "file": "emails/bec/test-case-10-bec.eml",
+  "sha256": "1314ab0b8d4ef2b8139fa723e7d3062f8e7abc09fa4a0e5bc516f05af0a78979",
+  "groundTruth": "Business Email Compromise",
+  "isHardNegative": false,
+  "expected": {
+    "classification": [
+      "Business Email Compromise",
+      "Executive Impersonation",
+      "Financial Fraud"
+    ],
+    "threatRiskMin": 75,
+    "action": [
+      "block",
+      "quarantine"
+    ]
+  },
+  "tags": [
+    "bec",
+    "wire_fraud",
+    "executive_impersonation"
+  ]
+}

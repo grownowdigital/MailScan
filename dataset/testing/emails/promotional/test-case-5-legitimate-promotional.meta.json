@@ -1,0 +1,22 @@
+{
+  "id": "test-case-5-legitimate-promotional",
+  "name": "5. Legitimate Promotional Email",
+  "description": "Promotional SaaS product update with high spam bulk signals but zero threat indicators",
+  "category": "Promotional",
+  "file": "emails/promotional/test-case-5-legitimate-promotional.eml",
+  "sha256": "551b6aee413bf3432e24455ad92e3cbec07f270f2a7c5e56e871cca924ef1570",
+  "groundTruth": "Promotional",
+  "isHardNegative": true,
+  "expected": {
+    "classification": [
+      "Promotional",
+      "Newsletter",
+      "Legitimate"
+    ],
+    "threatRiskMax": 20
+  },
+  "tags": [
+    "promotional",
+    "marketing"
+  ]
+}

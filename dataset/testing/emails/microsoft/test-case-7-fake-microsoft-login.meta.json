@@ -1,0 +1,25 @@
+{
+  "id": "test-case-7-fake-microsoft-login",
+  "name": "7. Fake Microsoft Login (SharePoint Phish)",
+  "description": "High-fidelity Microsoft SharePoint phishing lure pointing to external credential capture page",
+  "category": "Credential Theft",
+  "file": "emails/microsoft/test-case-7-fake-microsoft-login.eml",
+  "sha256": "8fc3f959f5fcca565dec4d3aba017213c1637e2e582d73002b59b53cbaaf59f2",
+  "groundTruth": "Phishing",
+  "isHardNegative": false,
+  "expected": {
+    "classification": [
+      "Credential Theft",
+      "Phishing"
+    ],
+    "threatRiskMin": 70,
+    "action": [
+      "block",
+      "quarantine"
+    ]
+  },
+  "tags": [
+    "phishing",
+    "microsoft"
+  ]
+}

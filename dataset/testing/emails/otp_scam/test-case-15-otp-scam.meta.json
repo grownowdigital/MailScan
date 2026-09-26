@@ -1,0 +1,26 @@
+{
+  "id": "test-case-15-otp-scam",
+  "name": "15. OTP Scam (Indian UPI/NetBanking Fraud)",
+  "description": "Urgent KYC mandate lure requesting OTP / debit card verification",
+  "category": "Credential Theft",
+  "file": "emails/otp_scam/test-case-15-otp-scam.eml",
+  "sha256": "8e40be55d117c1d540c41afd15e2a53aad60fa7b3ceb2ea62310fc001c890170",
+  "groundTruth": "Financial Fraud",
+  "isHardNegative": false,
+  "expected": {
+    "classification": [
+      "Credential Theft",
+      "Financial Fraud",
+      "Phishing"
+    ],
+    "threatRiskMin": 70,
+    "action": [
+      "block",
+      "quarantine"
+    ]
+  },
+  "tags": [
+    "otp_fraud",
+    "kyc_scam"
+  ]
+}

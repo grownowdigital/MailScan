@@ -179,7 +179,9 @@ export class FeedbackService {
       if (fs.existsSync(FEEDBACK_FILE)) {
         const raw = fs.readFileSync(FEEDBACK_FILE, 'utf-8');
         const list: AnalystFeedbackRecord[] = JSON.parse(raw);
-        list.forEach(item => this.feedbackItems.set(item.id, item));
+        // Exclude legacy demo/sample seeded ground truth records
+        const realList = list.filter(item => !item.analysisId?.startsWith('sample-') && !item.analysisId?.startsWith('demo-') && !item.id?.startsWith('sample-'));
+        realList.forEach(item => this.feedbackItems.set(item.id, item));
       }
       if (fs.existsSync(AUDIT_LOG_FILE)) {
         const raw = fs.readFileSync(AUDIT_LOG_FILE, 'utf-8');
@@ -198,10 +200,7 @@ export class FeedbackService {
     } catch (e) {
       console.warn('[FeedbackService] Error loading persisted feedback state, initializing clean:', e);
     }
-
-    if (this.feedbackItems.size === 0) {
-      this.seedGroundTruth();
-    }
+    // Feedback items start completely empty if no persisted store exists
   }
 
   private saveState() {

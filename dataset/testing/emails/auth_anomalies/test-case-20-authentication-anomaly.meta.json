@@ -1,0 +1,26 @@
+{
+  "id": "test-case-20-authentication-anomaly",
+  "name": "20. Severe Authentication & Header Forgery Anomaly",
+  "description": "From header forged as internal executive but SPF, DKIM, and DMARC all completely fail",
+  "category": "Phishing",
+  "file": "emails/auth_anomalies/test-case-20-authentication-anomaly.eml",
+  "sha256": "5dbf05805ebee81ea2da5371b15f48567bdba246e45aef2b7e50f2c75fca2697",
+  "groundTruth": "Executive Impersonation",
+  "isHardNegative": false,
+  "expected": {
+    "classification": [
+      "Executive Impersonation",
+      "Phishing",
+      "Credential Theft"
+    ],
+    "threatRiskMin": 75,
+    "action": [
+      "block",
+      "quarantine"
+    ]
+  },
+  "tags": [
+    "spf_dkim_forgery",
+    "header_anomaly"
+  ]
+}

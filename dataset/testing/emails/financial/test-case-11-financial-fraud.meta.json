@@ -1,0 +1,25 @@
+{
+  "id": "test-case-11-financial-fraud",
+  "name": "11. Financial Fraud / Invoice Diversion",
+  "description": "Vendor account update scam requesting payment diversion to new bank account",
+  "category": "Business Email Compromise",
+  "file": "emails/financial/test-case-11-financial-fraud.eml",
+  "sha256": "1104218dfd75c5e1c37be556c44d88d1e19ece11bc2ab7c9c510792d294dfe97",
+  "groundTruth": "Financial Fraud",
+  "isHardNegative": false,
+  "expected": {
+    "classification": [
+      "Business Email Compromise",
+      "Financial Fraud"
+    ],
+    "threatRiskMin": 75,
+    "action": [
+      "block",
+      "quarantine"
+    ]
+  },
+  "tags": [
+    "invoice_fraud",
+    "bank_diversion"
+  ]
+}

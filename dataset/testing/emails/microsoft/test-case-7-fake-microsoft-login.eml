@@ -1,0 +1,8 @@
+Authentication-Results: spf=fail; dkim=none; dmarc=fail
+From: "SharePoint Online Notification" <sharepoint-secure-doc@microsoft-secure-share.xyz>
+To: executive@enterprise.com
+Subject: Encrypted Financial Document shared via Microsoft SharePoint
+Date: Mon, 16 Sep 2026 14:30:00 +0000
+Content-Type: text/html; charset="UTF-8"
+
+<html><body><p>You have received a secure document from Board of Directors.</p><p><a href="http://microsoft-sharepoint-login-verify.top/auth">Sign in with Microsoft 365 to Access Document</a></p></body></html>

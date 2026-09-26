@@ -1,0 +1,9 @@
+Authentication-Results: spf=fail; dkim=none; dmarc=fail
+From: "Accounts Receivable - Cloud Provider" <billing@cloud-services-billing-dept.com>
+Reply-To: wire-receivables@cloud-vendor-settlement.com
+To: accounts.payable@enterprise.com
+Subject: Urgent: Updated Banking Information for Outstanding Invoice #INV-88912
+Date: Mon, 16 Sep 2026 16:30:00 +0000
+Content-Type: text/plain; charset="UTF-8"
+
+Please note our primary bank account has changed due to financial restructuring. Remit all pending invoice payments for INV-88912 to our new beneficiary details in Hong Kong.

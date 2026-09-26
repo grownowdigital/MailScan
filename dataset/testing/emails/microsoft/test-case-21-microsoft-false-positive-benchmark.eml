@@ -1,0 +1,8 @@
+Authentication-Results: spf=pass smtp.mailfrom=microsoft.com; dkim=pass header.d=microsoft.com; dmarc=pass header.from=microsoft.com
+From: "Microsoft Developer Events" <events@microsoft.com>
+To: engineer@enterprise.com
+Subject: Invitation: Microsoft AI Agentic Framework Deep Dive Workshop
+Date: Mon, 16 Sep 2026 21:30:00 +0000
+Content-Type: text/html; charset="UTF-8"
+
+<html><body><p>Join Microsoft engineers for an architectural session on Autonomous AI Agents.</p><p><a href="https://events.microsoft.com/ai-agents-workshop-2026">Register Free</a></p></body></html>

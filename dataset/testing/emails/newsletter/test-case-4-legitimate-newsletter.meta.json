@@ -1,0 +1,22 @@
+{
+  "id": "test-case-4-legitimate-newsletter",
+  "name": "4. Legitimate Newsletter",
+  "description": "High-volume marketing newsletter with List-Unsubscribe headers and low threat score",
+  "category": "Newsletter",
+  "file": "emails/newsletter/test-case-4-legitimate-newsletter.eml",
+  "sha256": "1a4da69ffef705f81859478e942daa15f9a59ad522bf22fb9d6e65e0f961df9b",
+  "groundTruth": "Newsletter",
+  "isHardNegative": true,
+  "expected": {
+    "classification": [
+      "Newsletter",
+      "Legitimate",
+      "Promotional"
+    ],
+    "threatRiskMax": 20
+  },
+  "tags": [
+    "newsletter",
+    "bulk_legit"
+  ]
+}

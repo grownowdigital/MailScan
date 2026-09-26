@@ -1,0 +1,27 @@
+{
+  "id": "test-case-13-unicode-deception",
+  "name": "13. Unicode Deception (Punycode / Homoglyph)",
+  "description": "Internationalized domain name homoglyph attack impersonating Apple",
+  "category": "Credential Theft",
+  "file": "emails/unicode_obfuscation/test-case-13-unicode-deception.eml",
+  "sha256": "f196f17260ae54c56c617ddb5a1c0ced95c05b9fd6f75c216fae0c285524c87a",
+  "groundTruth": "Domain Spoofing",
+  "isHardNegative": false,
+  "expected": {
+    "classification": [
+      "Domain Spoofing",
+      "Credential Theft",
+      "Business Email Compromise",
+      "Phishing"
+    ],
+    "threatRiskMin": 70,
+    "action": [
+      "block",
+      "quarantine"
+    ]
+  },
+  "tags": [
+    "unicode_homoglyph",
+    "punycode"
+  ]
+}

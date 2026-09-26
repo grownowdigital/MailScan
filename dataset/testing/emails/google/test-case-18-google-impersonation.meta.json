@@ -1,0 +1,25 @@
+{
+  "id": "test-case-18-google-impersonation",
+  "name": "18. Google Workspace Impersonation",
+  "description": "Forged Google Admin storage alert targeting corporate Google credentials",
+  "category": "Credential Theft",
+  "file": "emails/google/test-case-18-google-impersonation.eml",
+  "sha256": "a8eb3f43d51d2610eda18828ac84b51b5c2b464e01713699725f00b081967956",
+  "groundTruth": "Phishing",
+  "isHardNegative": false,
+  "expected": {
+    "classification": [
+      "Credential Theft",
+      "Phishing"
+    ],
+    "threatRiskMin": 75,
+    "action": [
+      "block",
+      "quarantine"
+    ]
+  },
+  "tags": [
+    "google",
+    "brand_impersonation_check"
+  ]
+}

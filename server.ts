@@ -215,8 +215,13 @@ async function startServer() {
     }
   });
 
-  // 2. Sample Scenarios List
+  const isTestMode = () => process.env.MAILTRACE_TEST_MODE === 'true';
+
+  // 2. Sample Scenarios List (Only available when explicit MAILTRACE_TEST_MODE=true)
   app.get('/api/samples', (req, res) => {
+    if (!isTestMode()) {
+      return res.json([]);
+    }
     const list = SAMPLE_SCENARIOS.map(s => ({
       id: s.id,
       name: s.name,
@@ -228,8 +233,11 @@ async function startServer() {
     res.json(list);
   });
 
-  // 3. Get single sample raw content
+  // 3. Get single sample raw content (Only available when explicit MAILTRACE_TEST_MODE=true)
   app.get('/api/samples/:id', (req, res) => {
+    if (!isTestMode()) {
+      return res.status(404).json({ error: 'Sample scenarios unavailable in production mode' });
+    }
     const sample = SAMPLE_SCENARIOS.find(s => s.id === req.params.id);
     if (!sample) {
       return res.status(404).json({ error: 'Sample scenario not found' });
@@ -242,7 +250,7 @@ async function startServer() {
     try {
       let { rawEmail, rawMime, scenarioId, headers, body, attachments, metadata } = req.body;
       const content = rawMime || rawEmail;
-      if (!content && scenarioId) {
+      if (!content && scenarioId && isTestMode()) {
         const found = SAMPLE_SCENARIOS.find(s => s.id === scenarioId);
         if (found) rawEmail = found.rawEml;
       } else if (content) {
@@ -562,7 +570,7 @@ async function startServer() {
       }
 
       let rawMime = existing.rawMime;
-      if (!rawMime) {
+      if (!rawMime && isTestMode()) {
         const sample = SAMPLE_SCENARIOS.find(s => s.id === emailId);
         if (sample) rawMime = sample.rawEml;
       }
@@ -1313,20 +1321,7 @@ async function startServer() {
         }
       }
 
-      // If active threat nodes is small, enrich with live global threat telemetry feeds
-      const baselineThreats = [
-        { id: 'geo-live-1', ip: '194.26.29.41', city: 'Moscow', country: 'Russian Federation', countryCode: 'RU', latitude: 55.7558, longitude: 37.6173, threatType: 'Credential Theft', severity: 'CRITICAL' as const, riskScore: 99, timestamp: new Date(Date.now() - 4 * 60000).toISOString(), subject: 'Urgent: Microsoft 365 Password Expiry', sender: 'security-update@account-protection.ru', campaign: 'Operation CloudHarvest (APT-29)' },
-        { id: 'geo-live-2', ip: '103.249.28.19', city: 'Shenzhen', country: 'China', countryCode: 'CN', latitude: 22.5431, longitude: 114.0579, threatType: 'Malware Delivery', severity: 'CRITICAL' as const, riskScore: 94, timestamp: new Date(Date.now() - 12 * 60000).toISOString(), subject: 'Invoice Payment Documentation.zip', sender: 'remittance@supplychain-logistics.cn', campaign: 'SilkTempest Loader Campaign' },
-        { id: 'geo-live-3', ip: '105.112.48.92', city: 'Lagos', country: 'Nigeria', countryCode: 'NG', latitude: 6.5244, longitude: 3.3792, threatType: 'Business Email Compromise', severity: 'HIGH' as const, riskScore: 92, timestamp: new Date(Date.now() - 18 * 60000).toISOString(), subject: 'Confidential Wire Transfer Request', sender: 'ceo.corporate@consultant-executive.ng', campaign: 'SilverTerrier Wire Fraud' },
-        { id: 'geo-live-4', ip: '185.220.101.5', city: 'Frankfurt', country: 'Germany', countryCode: 'DE', latitude: 50.1109, longitude: 8.6821, threatType: 'Phishing', severity: 'HIGH' as const, riskScore: 88, timestamp: new Date(Date.now() - 25 * 60000).toISOString(), subject: 'Bank Identity Re-authentication', sender: 'service@secure-auth-gateway.de', campaign: 'EuroBank Impersonation Cluster' },
-        { id: 'geo-live-5', ip: '177.54.148.33', city: 'São Paulo', country: 'Brazil', countryCode: 'BR', latitude: -23.5505, longitude: -46.6333, threatType: 'Financial Fraud', severity: 'HIGH' as const, riskScore: 85, timestamp: new Date(Date.now() - 32 * 60000).toISOString(), subject: 'Comprovante de Pagamento Bancario', sender: 'cobranca@financeiro-brazil.net', campaign: 'Boleto Clipper Trojan' },
-        { id: 'geo-live-6', ip: '45.142.122.9', city: 'Bucharest', country: 'Romania', countryCode: 'RO', latitude: 44.4268, longitude: 26.1025, threatType: 'Credential Theft', severity: 'HIGH' as const, riskScore: 87, timestamp: new Date(Date.now() - 45 * 60000).toISOString(), subject: 'HR Benefits Enrollment Update', sender: 'hr-support@payroll-connect.ro' },
-        { id: 'geo-live-7', ip: '198.51.100.44', city: 'Ashburn', country: 'United States', countryCode: 'US', latitude: 39.0438, longitude: -77.4874, threatType: 'Spam / Bulk', severity: 'LOW' as const, riskScore: 12, timestamp: new Date(Date.now() - 50 * 60000).toISOString(), subject: 'Q3 Enterprise Product Newsletter', sender: 'updates@marketing-mail.com' },
-        { id: 'geo-live-8', ip: '117.20.78.11', city: 'Mumbai', country: 'India', countryCode: 'IN', latitude: 19.0760, longitude: 72.8777, threatType: 'Phishing', severity: 'HIGH' as const, riskScore: 84, timestamp: new Date(Date.now() - 58 * 60000).toISOString(), subject: 'Income Tax Refund Notification', sender: 'refund-desk@incometax-filing.in' },
-        { id: 'geo-live-9', ip: '185.143.221.7', city: 'Amsterdam', country: 'Netherlands', countryCode: 'NL', latitude: 52.3676, longitude: 4.9041, threatType: 'Impersonation', severity: 'HIGH' as const, riskScore: 90, timestamp: new Date(Date.now() - 65 * 60000).toISOString(), subject: 'Executive Calendar Invitation', sender: 'board-liaison@netherlands-corp.nl' }
-      ];
-
-      const combinedNodes = [...activeThreatNodes, ...baselineThreats];
+      const combinedNodes = [...activeThreatNodes];
       res.json({
         activeOriginsCount: combinedNodes.length,
         socDefenseLocation: {
@@ -1362,19 +1357,13 @@ async function startServer() {
 
   app.listen(PORT, '0.0.0.0', () => {
     console.log(`[MailTrace AI] Server listening on http://0.0.0.0:${PORT}`);
-
-    // Pre-analyze primary scenario asynchronously in background
-    setTimeout(async () => {
-      try {
-        const primarySample = SAMPLE_SCENARIOS.find(s => s.id === 'scenario-4-fake-invoice') || SAMPLE_SCENARIOS[0];
-        if (primarySample && primarySample.rawEml) {
-          await runEmailAnalysisPipeline(primarySample.rawEml, primarySample.id);
-          console.log('[MailTrace] Seeded initial analysis for primary scenario:', primarySample.id);
-        }
-      } catch (err) {
-        console.warn('[MailTrace] Seed error:', err);
-      }
-    }, 1500);
+    if (isTestMode()) {
+      console.log('[MailTrace AI] MailTrace TEST MODE ENABLED');
+    } else {
+      console.log('[MailTrace AI] MailTrace production startup:');
+      console.log('[MailTrace AI] Demo/Test data seeding: DISABLED');
+      console.log('[MailTrace AI] Automatic sample data loading: DISABLED');
+    }
   });
 }
 

@@ -1,0 +1,26 @@
+{
+  "id": "test-case-8-lookalike-domain",
+  "name": "8. Lookalike Domain Phishing",
+  "description": "Typosquatting domain attack targeting internal corporate domain",
+  "category": "Credential Theft",
+  "file": "emails/lookalike_domains/test-case-8-lookalike-domain.eml",
+  "sha256": "244e677ab30e7297e8f600e11839baa56ca3bb48d5eca09ae9ab0dd6d0b45a2d",
+  "groundTruth": "Phishing",
+  "isHardNegative": false,
+  "expected": {
+    "classification": [
+      "Credential Theft",
+      "Phishing",
+      "Domain Spoofing"
+    ],
+    "threatRiskMin": 70,
+    "action": [
+      "block",
+      "quarantine"
+    ]
+  },
+  "tags": [
+    "lookalike_domain",
+    "typosquatting"
+  ]
+}

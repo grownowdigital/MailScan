@@ -1,0 +1,18 @@
+From: test@example.org
+To: user@example.org
+Subject: Test Nested Multipart
+Content-Type: multipart/mixed; boundary="BOUNDARY_1"
+
+--BOUNDARY_1
+Content-Type: text/plain
+
+Hello
+--BOUNDARY_1
+Content-Type: multipart/alternative; boundary="BOUNDARY_2"
+
+--BOUNDARY_2
+Content-Type: text/html
+
+<b>Hello HTML</b>
+--BOUNDARY_2--
+--BOUNDARY_1--

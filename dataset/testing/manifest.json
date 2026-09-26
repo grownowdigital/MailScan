@@ -1,0 +1,601 @@
+{
+  "version": "1.0.0",
+  "description": "MailTrace AI Authoritative Security & Forensic Test Dataset",
+  "source": "dataset/testing/",
+  "totalCases": 24,
+  "labeledCases": 21,
+  "unlabeledCases": 3,
+  "generatedAt": "2026-09-17T06:50:41.211Z",
+  "categories": {
+    "UNLABELED": 3,
+    "Legitimate": 4,
+    "Newsletter": 1,
+    "Promotional": 1,
+    "Credential Theft": 1,
+    "Phishing": 6,
+    "Business Email Compromise": 3,
+    "Financial Fraud": 2,
+    "Malware Delivery": 1,
+    "Domain Spoofing": 1,
+    "Executive Impersonation": 1
+  },
+  "cases": [
+    {
+      "id": "edge-case-01-multipart-nested-boundary",
+      "name": "Edge Case 1: Nested MIME Multipart with Empty Part",
+      "description": "Edge case fixture for parser stability testing",
+      "category": "UNLABELED",
+      "file": "emails/edge_cases/edge-case-01-multipart-nested-boundary.eml",
+      "sha256": "04bfdea7f6041b50ce9b044ddb730a88dbf408bdb623bb43ae7da480dc4b4ecc",
+      "groundTruth": "UNLABELED",
+      "isHardNegative": false,
+      "expected": {
+        "classification": []
+      },
+      "tags": [
+        "edge_case",
+        "unlabeled",
+        "parser_stability"
+      ]
+    },
+    {
+      "id": "edge-case-02-utf8-encoded-words",
+      "name": "Edge Case 2: RFC 2047 Encoded Words in Subject and Headers",
+      "description": "Edge case fixture for parser stability testing",
+      "category": "UNLABELED",
+      "file": "emails/edge_cases/edge-case-02-utf8-encoded-words.eml",
+      "sha256": "b3e19456da7b9f1eadfa64c0d2e75d32bdfaaa808ac09291edbaa340347310d6",
+      "groundTruth": "UNLABELED",
+      "isHardNegative": false,
+      "expected": {
+        "classification": []
+      },
+      "tags": [
+        "edge_case",
+        "unlabeled",
+        "parser_stability"
+      ]
+    },
+    {
+      "id": "edge-case-03-empty-headers-raw-body",
+      "name": "Edge Case 3: Raw Body with Minimal Incomplete Headers",
+      "description": "Edge case fixture for parser stability testing",
+      "category": "UNLABELED",
+      "file": "emails/edge_cases/edge-case-03-empty-headers-raw-body.eml",
+      "sha256": "78bb2b0950d83f2054d05d5ab5317d93a1152996affbd1acc037a14b71ecf53d",
+      "groundTruth": "UNLABELED",
+      "isHardNegative": false,
+      "expected": {
+        "classification": []
+      },
+      "tags": [
+        "edge_case",
+        "unlabeled",
+        "parser_stability"
+      ]
+    },
+    {
+      "id": "test-case-1-legitimate-microsoft",
+      "name": "1. Legitimate Microsoft Email",
+      "description": "Authentic Microsoft 365 security notification with valid SPF/DKIM",
+      "category": "Legitimate",
+      "file": "emails/microsoft/test-case-1-legitimate-microsoft.eml",
+      "sha256": "fd9dfea1a577d7cc3273972d33862e8478fb757d1d3538dcb4316bc16d817d39",
+      "groundTruth": "Legitimate",
+      "isHardNegative": false,
+      "expected": {
+        "classification": [
+          "Legitimate"
+        ],
+        "threatRiskMax": 15,
+        "action": [
+          "allow"
+        ]
+      },
+      "tags": [
+        "legitimate",
+        "microsoft",
+        "brand_impersonation_check"
+      ]
+    },
+    {
+      "id": "test-case-2-legitimate-google",
+      "name": "2. Legitimate Google Email",
+      "description": "Authentic Google Workspace account alert with strict SPF/DKIM verification",
+      "category": "Legitimate",
+      "file": "emails/google/test-case-2-legitimate-google.eml",
+      "sha256": "92f39eadf4ec159e26c6a116617c7fd5fe5e290932f10ad7ef67d224c5c038ff",
+      "groundTruth": "Legitimate",
+      "isHardNegative": false,
+      "expected": {
+        "classification": [
+          "Legitimate"
+        ],
+        "threatRiskMax": 15,
+        "action": [
+          "allow"
+        ]
+      },
+      "tags": [
+        "legitimate",
+        "google"
+      ]
+    },
+    {
+      "id": "test-case-3-legitimate-bank",
+      "name": "3. Legitimate Bank Transaction",
+      "description": "Authentic corporate banking monthly e-statement with full transport integrity",
+      "category": "Legitimate",
+      "file": "emails/financial/test-case-3-legitimate-bank.eml",
+      "sha256": "7674e2d655000639fda87d9e786c444eb6509d2f6dbf956e76c35a3a5f477aff",
+      "groundTruth": "Legitimate",
+      "isHardNegative": false,
+      "expected": {
+        "classification": [
+          "Legitimate"
+        ],
+        "threatRiskMax": 15,
+        "action": [
+          "allow"
+        ]
+      },
+      "tags": [
+        "legitimate",
+        "financial"
+      ]
+    },
+    {
+      "id": "test-case-4-legitimate-newsletter",
+      "name": "4. Legitimate Newsletter",
+      "description": "High-volume marketing newsletter with List-Unsubscribe headers and low threat score",
+      "category": "Newsletter",
+      "file": "emails/newsletter/test-case-4-legitimate-newsletter.eml",
+      "sha256": "1a4da69ffef705f81859478e942daa15f9a59ad522bf22fb9d6e65e0f961df9b",
+      "groundTruth": "Newsletter",
+      "isHardNegative": true,
+      "expected": {
+        "classification": [
+          "Newsletter",
+          "Legitimate",
+          "Promotional"
+        ],
+        "threatRiskMax": 20
+      },
+      "tags": [
+        "newsletter",
+        "bulk_legit"
+      ]
+    },
+    {
+      "id": "test-case-5-legitimate-promotional",
+      "name": "5. Legitimate Promotional Email",
+      "description": "Promotional SaaS product update with high spam bulk signals but zero threat indicators",
+      "category": "Promotional",
+      "file": "emails/promotional/test-case-5-legitimate-promotional.eml",
+      "sha256": "551b6aee413bf3432e24455ad92e3cbec07f270f2a7c5e56e871cca924ef1570",
+      "groundTruth": "Promotional",
+      "isHardNegative": true,
+      "expected": {
+        "classification": [
+          "Promotional",
+          "Newsletter",
+          "Legitimate"
+        ],
+        "threatRiskMax": 20
+      },
+      "tags": [
+        "promotional",
+        "marketing"
+      ]
+    },
+    {
+      "id": "test-case-6-credential-phishing",
+      "name": "6. Credential Phishing",
+      "description": "Direct password reset credential harvesting page disguised as IT Helpdesk",
+      "category": "Credential Theft",
+      "file": "emails/credential_theft/test-case-6-credential-phishing.eml",
+      "sha256": "f78fef938fa5d4f3e8afccc0acff40ebe9fa9ee32be68ec185d88845f9104aa1",
+      "groundTruth": "Credential Theft",
+      "isHardNegative": false,
+      "expected": {
+        "classification": [
+          "Credential Theft",
+          "Phishing"
+        ],
+        "threatRiskMin": 70,
+        "action": [
+          "block",
+          "quarantine"
+        ]
+      },
+      "tags": [
+        "credential_harvesting",
+        "phishing"
+      ]
+    },
+    {
+      "id": "test-case-7-fake-microsoft-login",
+      "name": "7. Fake Microsoft Login (SharePoint Phish)",
+      "description": "High-fidelity Microsoft SharePoint phishing lure pointing to external credential capture page",
+      "category": "Credential Theft",
+      "file": "emails/microsoft/test-case-7-fake-microsoft-login.eml",
+      "sha256": "8fc3f959f5fcca565dec4d3aba017213c1637e2e582d73002b59b53cbaaf59f2",
+      "groundTruth": "Phishing",
+      "isHardNegative": false,
+      "expected": {
+        "classification": [
+          "Credential Theft",
+          "Phishing"
+        ],
+        "threatRiskMin": 70,
+        "action": [
+          "block",
+          "quarantine"
+        ]
+      },
+      "tags": [
+        "phishing",
+        "microsoft"
+      ]
+    },
+    {
+      "id": "test-case-8-lookalike-domain",
+      "name": "8. Lookalike Domain Phishing",
+      "description": "Typosquatting domain attack targeting internal corporate domain",
+      "category": "Credential Theft",
+      "file": "emails/lookalike_domains/test-case-8-lookalike-domain.eml",
+      "sha256": "244e677ab30e7297e8f600e11839baa56ca3bb48d5eca09ae9ab0dd6d0b45a2d",
+      "groundTruth": "Phishing",
+      "isHardNegative": false,
+      "expected": {
+        "classification": [
+          "Credential Theft",
+          "Phishing",
+          "Domain Spoofing"
+        ],
+        "threatRiskMin": 70,
+        "action": [
+          "block",
+          "quarantine"
+        ]
+      },
+      "tags": [
+        "lookalike_domain",
+        "typosquatting"
+      ]
+    },
+    {
+      "id": "test-case-9-malicious-url",
+      "name": "9. Malicious URL Attack",
+      "description": "Direct raw IP and suspicious TLD payload targeting user credentials",
+      "category": "Credential Theft",
+      "file": "emails/malicious_urls/test-case-9-malicious-url.eml",
+      "sha256": "4d4ef19c2b9433ad11a7aa23fc03e2af348b3489841ff31ea7f246b464cef7c3",
+      "groundTruth": "Phishing",
+      "isHardNegative": false,
+      "expected": {
+        "classification": [
+          "Credential Theft",
+          "Phishing",
+          "Malware Delivery"
+        ],
+        "threatRiskMin": 70,
+        "action": [
+          "block",
+          "quarantine"
+        ]
+      },
+      "tags": [
+        "malicious_url",
+        "ip_destination"
+      ]
+    },
+    {
+      "id": "test-case-10-bec",
+      "name": "10. Business Email Compromise (BEC)",
+      "description": "CEO impersonation requesting immediate confidential wire transfer",
+      "category": "Business Email Compromise",
+      "file": "emails/bec/test-case-10-bec.eml",
+      "sha256": "1314ab0b8d4ef2b8139fa723e7d3062f8e7abc09fa4a0e5bc516f05af0a78979",
+      "groundTruth": "Business Email Compromise",
+      "isHardNegative": false,
+      "expected": {
+        "classification": [
+          "Business Email Compromise",
+          "Executive Impersonation",
+          "Financial Fraud"
+        ],
+        "threatRiskMin": 75,
+        "action": [
+          "block",
+          "quarantine"
+        ]
+      },
+      "tags": [
+        "bec",
+        "wire_fraud",
+        "executive_impersonation"
+      ]
+    },
+    {
+      "id": "test-case-11-financial-fraud",
+      "name": "11. Financial Fraud / Invoice Diversion",
+      "description": "Vendor account update scam requesting payment diversion to new bank account",
+      "category": "Business Email Compromise",
+      "file": "emails/financial/test-case-11-financial-fraud.eml",
+      "sha256": "1104218dfd75c5e1c37be556c44d88d1e19ece11bc2ab7c9c510792d294dfe97",
+      "groundTruth": "Financial Fraud",
+      "isHardNegative": false,
+      "expected": {
+        "classification": [
+          "Business Email Compromise",
+          "Financial Fraud"
+        ],
+        "threatRiskMin": 75,
+        "action": [
+          "block",
+          "quarantine"
+        ]
+      },
+      "tags": [
+        "invoice_fraud",
+        "bank_diversion"
+      ]
+    },
+    {
+      "id": "test-case-12-malware-attachment",
+      "name": "12. Malware Attachment",
+      "description": "Weaponized attachment containing macro-enabled document with suspicious hash",
+      "category": "Malware Delivery",
+      "file": "emails/malware/test-case-12-malware-attachment.eml",
+      "sha256": "e5b54311c970dd3f40aa976dc9b52826ba57da9affde07a74fc1a925e2965945",
+      "groundTruth": "Malware Delivery",
+      "isHardNegative": false,
+      "expected": {
+        "classification": [
+          "Malware Delivery",
+          "Phishing",
+          "Credential Theft"
+        ],
+        "threatRiskMin": 75,
+        "action": [
+          "block",
+          "quarantine"
+        ]
+      },
+      "tags": [
+        "attachment_macro",
+        "malware_delivery"
+      ]
+    },
+    {
+      "id": "test-case-13-unicode-deception",
+      "name": "13. Unicode Deception (Punycode / Homoglyph)",
+      "description": "Internationalized domain name homoglyph attack impersonating Apple",
+      "category": "Credential Theft",
+      "file": "emails/unicode_obfuscation/test-case-13-unicode-deception.eml",
+      "sha256": "f196f17260ae54c56c617ddb5a1c0ced95c05b9fd6f75c216fae0c285524c87a",
+      "groundTruth": "Domain Spoofing",
+      "isHardNegative": false,
+      "expected": {
+        "classification": [
+          "Domain Spoofing",
+          "Credential Theft",
+          "Business Email Compromise",
+          "Phishing"
+        ],
+        "threatRiskMin": 70,
+        "action": [
+          "block",
+          "quarantine"
+        ]
+      },
+      "tags": [
+        "unicode_homoglyph",
+        "punycode"
+      ]
+    },
+    {
+      "id": "test-case-14-ascii-smuggling",
+      "name": "14. ASCII Smuggling / Zero-Width Attack",
+      "description": "Zero-width Unicode characters used to hide phishing instructions from legacy scanners",
+      "category": "Credential Theft",
+      "file": "emails/ascii_smuggling/test-case-14-ascii-smuggling.eml",
+      "sha256": "1e5ff3ade617ef8c4305e1f36a12a58077f7ae405542b50e7844f7176fcdee8a",
+      "groundTruth": "Phishing",
+      "isHardNegative": false,
+      "expected": {
+        "classification": [
+          "Credential Theft",
+          "Phishing"
+        ],
+        "threatRiskMin": 75,
+        "action": [
+          "block",
+          "quarantine"
+        ]
+      },
+      "tags": [
+        "ascii_smuggling",
+        "hidden_payload"
+      ]
+    },
+    {
+      "id": "test-case-15-otp-scam",
+      "name": "15. OTP Scam (Indian UPI/NetBanking Fraud)",
+      "description": "Urgent KYC mandate lure requesting OTP / debit card verification",
+      "category": "Credential Theft",
+      "file": "emails/otp_scam/test-case-15-otp-scam.eml",
+      "sha256": "8e40be55d117c1d540c41afd15e2a53aad60fa7b3ceb2ea62310fc001c890170",
+      "groundTruth": "Financial Fraud",
+      "isHardNegative": false,
+      "expected": {
+        "classification": [
+          "Credential Theft",
+          "Financial Fraud",
+          "Phishing"
+        ],
+        "threatRiskMin": 70,
+        "action": [
+          "block",
+          "quarantine"
+        ]
+      },
+      "tags": [
+        "otp_fraud",
+        "kyc_scam"
+      ]
+    },
+    {
+      "id": "test-case-16-qr-phishing",
+      "name": "16. QR Phishing (Quishing Attack)",
+      "description": "Embedded QR code lure designed to bypass traditional URL scrapers",
+      "category": "Credential Theft",
+      "file": "emails/quishing/test-case-16-qr-phishing.eml",
+      "sha256": "8958eaaf46b3e2b91973a86b1844a918ba062fc39898c0ce997cc6568b7c74df",
+      "groundTruth": "Phishing",
+      "isHardNegative": false,
+      "expected": {
+        "classification": [
+          "Credential Theft",
+          "Phishing"
+        ],
+        "threatRiskMin": 70,
+        "action": [
+          "block",
+          "quarantine"
+        ]
+      },
+      "tags": [
+        "quishing",
+        "qr_phishing"
+      ]
+    },
+    {
+      "id": "test-case-17-conversation-hijacking",
+      "name": "17. Conversation Hijacking / Thread Insertion",
+      "description": "Hijacked existing email thread with forged supplier payment change",
+      "category": "Business Email Compromise",
+      "file": "emails/conversation_hijacking/test-case-17-conversation-hijacking.eml",
+      "sha256": "24e083671bbf6b3999fb6007554ea067aa852ce63e496b0785323a5668a14676",
+      "groundTruth": "Business Email Compromise",
+      "isHardNegative": false,
+      "expected": {
+        "classification": [
+          "Business Email Compromise",
+          "Financial Fraud",
+          "Phishing"
+        ],
+        "threatRiskMin": 70,
+        "action": [
+          "block",
+          "quarantine"
+        ]
+      },
+      "tags": [
+        "thread_hijacking",
+        "supplier_spoof"
+      ]
+    },
+    {
+      "id": "test-case-18-google-impersonation",
+      "name": "18. Google Workspace Impersonation",
+      "description": "Forged Google Admin storage alert targeting corporate Google credentials",
+      "category": "Credential Theft",
+      "file": "emails/google/test-case-18-google-impersonation.eml",
+      "sha256": "a8eb3f43d51d2610eda18828ac84b51b5c2b464e01713699725f00b081967956",
+      "groundTruth": "Phishing",
+      "isHardNegative": false,
+      "expected": {
+        "classification": [
+          "Credential Theft",
+          "Phishing"
+        ],
+        "threatRiskMin": 75,
+        "action": [
+          "block",
+          "quarantine"
+        ]
+      },
+      "tags": [
+        "google",
+        "brand_impersonation_check"
+      ]
+    },
+    {
+      "id": "test-case-19-reply-to-manipulation",
+      "name": "19. Reply-To Manipulation & Routing Anomaly",
+      "description": "Discrepancy between From domain and Reply-To domain routing to external drop address",
+      "category": "Business Email Compromise",
+      "file": "emails/routing_anomalies/test-case-19-reply-to-manipulation.eml",
+      "sha256": "388ca98111eda4844412661656a9f5732b93e23c9e9ca986b800b170eba24513",
+      "groundTruth": "Business Email Compromise",
+      "isHardNegative": false,
+      "expected": {
+        "classification": [
+          "Business Email Compromise",
+          "Executive Impersonation"
+        ],
+        "threatRiskMin": 70,
+        "action": [
+          "block",
+          "quarantine"
+        ]
+      },
+      "tags": [
+        "reply_to_mismatch",
+        "routing_anomaly"
+      ]
+    },
+    {
+      "id": "test-case-20-authentication-anomaly",
+      "name": "20. Severe Authentication & Header Forgery Anomaly",
+      "description": "From header forged as internal executive but SPF, DKIM, and DMARC all completely fail",
+      "category": "Phishing",
+      "file": "emails/auth_anomalies/test-case-20-authentication-anomaly.eml",
+      "sha256": "5dbf05805ebee81ea2da5371b15f48567bdba246e45aef2b7e50f2c75fca2697",
+      "groundTruth": "Executive Impersonation",
+      "isHardNegative": false,
+      "expected": {
+        "classification": [
+          "Executive Impersonation",
+          "Phishing",
+          "Credential Theft"
+        ],
+        "threatRiskMin": 75,
+        "action": [
+          "block",
+          "quarantine"
+        ]
+      },
+      "tags": [
+        "spf_dkim_forgery",
+        "header_anomaly"
+      ]
+    },
+    {
+      "id": "test-case-21-microsoft-false-positive-benchmark",
+      "name": "21. Microsoft False-Positive Benchmark (AI Agent Event)",
+      "description": "High-signal technical invite from Microsoft containing external links but valid cryptographic provenance",
+      "category": "Legitimate",
+      "file": "emails/microsoft/test-case-21-microsoft-false-positive-benchmark.eml",
+      "sha256": "54daa99721aae4971214582fb48f99b3f95cf4b160b80a4079ac1cc4db6fe720",
+      "groundTruth": "Legitimate",
+      "isHardNegative": true,
+      "expected": {
+        "classification": [
+          "Legitimate"
+        ],
+        "threatRiskMax": 15,
+        "action": [
+          "allow"
+        ]
+      },
+      "tags": [
+        "legitimate",
+        "microsoft",
+        "bulk_legit"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+Authentication-Results: mx.google.com; dkim=pass header.i=@google.com; spf=pass smtp.mailfrom=google.com; dmarc=pass header.from=google.com
+From: "Google Workspace Team" <no-reply@accounts.google.com>
+To: analyst@enterprise.com
+Subject: Security alert for your linked Google Account
+Date: Mon, 16 Sep 2026 10:15:00 +0000
+Content-Type: text/html; charset="UTF-8"
+
+<html><body><p>Your Google Account was accessed from a new device.</p><p><a href="https://myaccount.google.com/notifications">Check activity</a></p></body></html>

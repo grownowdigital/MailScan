@@ -1,0 +1,8 @@
+Authentication-Results: spf=fail; dkim=none; dmarc=fail
+From: "Apple ID Security" <support@xn--pple-43d.com>
+To: user@enterprise.com
+Subject: Your Apple ID has been locked for security reasons
+Date: Mon, 16 Sep 2026 17:30:00 +0000
+Content-Type: text/html; charset="UTF-8"
+
+<html><body><p>Your Apple ID was locked. Unlock your account:</p><p><a href="http://xn--pple-43d.com/unlock">Unlock Apple ID</a></p></body></html>

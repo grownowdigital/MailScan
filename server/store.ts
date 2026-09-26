@@ -21,12 +21,7 @@ class SocDataStore {
   public auditLogs: AuditLogItem[] = [];
 
   constructor() {
-    this.seedInitialData();
-  }
-
-  private seedInitialData() {
-    // Initialize SOC Engine runtime audit log - no dummy mock records
-    this.logAudit('SYSTEM', 'PLATFORM', 'INITIALIZE', 'SOC Engine Booted & Ready for Live Ingestion', '127.0.0.1', 'SUCCESS');
+    // SOC Engine runtime store starts clean with zero records
   }
 
   public logAudit(actor: string, role: string, action: string, target: string, ipAddress: string, status: 'SUCCESS' | 'WARNING' | 'FAILURE') {

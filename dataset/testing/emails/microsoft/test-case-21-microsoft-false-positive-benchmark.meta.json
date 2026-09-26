@@ -1,0 +1,24 @@
+{
+  "id": "test-case-21-microsoft-false-positive-benchmark",
+  "name": "21. Microsoft False-Positive Benchmark (AI Agent Event)",
+  "description": "High-signal technical invite from Microsoft containing external links but valid cryptographic provenance",
+  "category": "Legitimate",
+  "file": "emails/microsoft/test-case-21-microsoft-false-positive-benchmark.eml",
+  "sha256": "54daa99721aae4971214582fb48f99b3f95cf4b160b80a4079ac1cc4db6fe720",
+  "groundTruth": "Legitimate",
+  "isHardNegative": true,
+  "expected": {
+    "classification": [
+      "Legitimate"
+    ],
+    "threatRiskMax": 15,
+    "action": [
+      "allow"
+    ]
+  },
+  "tags": [
+    "legitimate",
+    "microsoft",
+    "bulk_legit"
+  ]
+}

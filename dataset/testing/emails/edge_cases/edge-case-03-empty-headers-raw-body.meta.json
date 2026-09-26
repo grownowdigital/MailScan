@@ -1,0 +1,18 @@
+{
+  "id": "edge-case-03-empty-headers-raw-body",
+  "name": "Edge Case 3: Raw Body with Minimal Incomplete Headers",
+  "description": "Edge case fixture for parser stability testing",
+  "category": "UNLABELED",
+  "file": "emails/edge_cases/edge-case-03-empty-headers-raw-body.eml",
+  "sha256": "78bb2b0950d83f2054d05d5ab5317d93a1152996affbd1acc037a14b71ecf53d",
+  "groundTruth": "UNLABELED",
+  "isHardNegative": false,
+  "expected": {
+    "classification": []
+  },
+  "tags": [
+    "edge_case",
+    "unlabeled",
+    "parser_stability"
+  ]
+}

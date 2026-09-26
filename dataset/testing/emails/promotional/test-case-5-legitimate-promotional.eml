@@ -1,0 +1,9 @@
+Authentication-Results: spf=pass smtp.mailfrom=marketing.atlassian.com; dkim=pass header.d=atlassian.com; dmarc=pass header.from=atlassian.com
+List-Unsubscribe: <https://atlassian.com/unsub>
+From: "Atlassian Special Offers" <promotions@atlassian.com>
+To: dev@enterprise.com
+Subject: Special 30% discount on Jira Cloud Enterprise Plans!
+Date: Mon, 16 Sep 2026 13:00:00 +0000
+Content-Type: text/html; charset="UTF-8"
+
+<html><body><h2>Upgrade your team today!</h2><p>Get 30% off annual plans with promo code ENTERPRISE30.</p><a href="https://www.atlassian.com/software/jira/pricing">Claim Offer</a></body></html>

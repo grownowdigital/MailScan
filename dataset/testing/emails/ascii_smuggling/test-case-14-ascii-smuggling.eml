@@ -1,0 +1,8 @@
+Authentication-Results: spf=fail; dkim=none; dmarc=fail
+From: "Security Ops" <admin@security-verification-portal.com>
+To: user@enterprise.com
+Subject: U​R​G​E​N​T: S​e​c​u​r​i​t​y N​o​t​i​c​e
+Date: Mon, 16 Sep 2026 18:00:00 +0000
+Content-Type: text/html; charset="UTF-8"
+
+<html><body><p>P​l​e​a​s​e r​e​s​e​t y​o​u​r c​r​e​d​e​n​t​i​a​l​s:</p><p><a href="http://103.20.10.15/login">Reset Password</a></p></body></html>

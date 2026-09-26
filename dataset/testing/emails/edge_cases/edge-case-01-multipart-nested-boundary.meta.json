@@ -1,0 +1,18 @@
+{
+  "id": "edge-case-01-multipart-nested-boundary",
+  "name": "Edge Case 1: Nested MIME Multipart with Empty Part",
+  "description": "Edge case fixture for parser stability testing",
+  "category": "UNLABELED",
+  "file": "emails/edge_cases/edge-case-01-multipart-nested-boundary.eml",
+  "sha256": "04bfdea7f6041b50ce9b044ddb730a88dbf408bdb623bb43ae7da480dc4b4ecc",
+  "groundTruth": "UNLABELED",
+  "isHardNegative": false,
+  "expected": {
+    "classification": []
+  },
+  "tags": [
+    "edge_case",
+    "unlabeled",
+    "parser_stability"
+  ]
+}

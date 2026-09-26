@@ -1,0 +1,26 @@
+{
+  "id": "test-case-9-malicious-url",
+  "name": "9. Malicious URL Attack",
+  "description": "Direct raw IP and suspicious TLD payload targeting user credentials",
+  "category": "Credential Theft",
+  "file": "emails/malicious_urls/test-case-9-malicious-url.eml",
+  "sha256": "4d4ef19c2b9433ad11a7aa23fc03e2af348b3489841ff31ea7f246b464cef7c3",
+  "groundTruth": "Phishing",
+  "isHardNegative": false,
+  "expected": {
+    "classification": [
+      "Credential Theft",
+      "Phishing",
+      "Malware Delivery"
+    ],
+    "threatRiskMin": 70,
+    "action": [
+      "block",
+      "quarantine"
+    ]
+  },
+  "tags": [
+    "malicious_url",
+    "ip_destination"
+  ]
+}

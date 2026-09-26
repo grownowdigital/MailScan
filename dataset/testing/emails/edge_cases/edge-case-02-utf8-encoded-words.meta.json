@@ -1,0 +1,18 @@
+{
+  "id": "edge-case-02-utf8-encoded-words",
+  "name": "Edge Case 2: RFC 2047 Encoded Words in Subject and Headers",
+  "description": "Edge case fixture for parser stability testing",
+  "category": "UNLABELED",
+  "file": "emails/edge_cases/edge-case-02-utf8-encoded-words.eml",
+  "sha256": "b3e19456da7b9f1eadfa64c0d2e75d32bdfaaa808ac09291edbaa340347310d6",
+  "groundTruth": "UNLABELED",
+  "isHardNegative": false,
+  "expected": {
+    "classification": []
+  },
+  "tags": [
+    "edge_case",
+    "unlabeled",
+    "parser_stability"
+  ]
+}

@@ -50,24 +50,7 @@ class DeviceSyncService extends EventEmitter {
 
   constructor() {
     super();
-    this.seedDefaultDevices();
-  }
-
-  private seedDefaultDevices() {
-    const primaryConsoleId = 'mt_dev_console_primary_soc';
-    this.devices.set(primaryConsoleId, {
-      deviceId: primaryConsoleId,
-      deviceType: 'web_console',
-      deviceName: 'Master SOC Forensic Console',
-      platform: 'Enterprise Web Client',
-      browser: 'Chrome / WebKit',
-      webConsoleVersion: '2.4.0',
-      createdAt: new Date(Date.now() - 86400000 * 2).toISOString(),
-      lastSeenAt: new Date().toISOString(),
-      syncVersion: 1,
-      status: 'ONLINE',
-      capabilities: ['ANALYSIS_INGEST', 'DFIR_CASE_MANAGEMENT', 'ML_GOVERNANCE', 'SSE_REALTIME']
-    });
+    // Device registry starts empty; devices register dynamically upon connection
   }
 
   public generateDeviceId(prefix: 'ext' | 'web' = 'web'): string {

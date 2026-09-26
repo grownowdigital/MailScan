@@ -1,0 +1,8 @@
+Authentication-Results: spf=fail; dkim=none; dmarc=fail
+From: "State Bank Customer Support" <alerts@sbi-kyc-mandate.in>
+To: citizen@domain.in
+Subject: MANDATORY: Your SBI Account and UPI will be suspended today - Complete KYC
+Date: Mon, 16 Sep 2026 18:30:00 +0000
+Content-Type: text/html; charset="UTF-8"
+
+<html><body><p>Dear SBI Customer, your YONO account KYC has expired. Update your PAN card and verify OTP immediately:</p><p><a href="http://sbi-kyc-portal-update.in/verify">Update SBI KYC Details</a></p></body></html>

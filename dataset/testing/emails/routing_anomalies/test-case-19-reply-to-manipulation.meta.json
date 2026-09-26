@@ -1,0 +1,25 @@
+{
+  "id": "test-case-19-reply-to-manipulation",
+  "name": "19. Reply-To Manipulation & Routing Anomaly",
+  "description": "Discrepancy between From domain and Reply-To domain routing to external drop address",
+  "category": "Business Email Compromise",
+  "file": "emails/routing_anomalies/test-case-19-reply-to-manipulation.eml",
+  "sha256": "388ca98111eda4844412661656a9f5732b93e23c9e9ca986b800b170eba24513",
+  "groundTruth": "Business Email Compromise",
+  "isHardNegative": false,
+  "expected": {
+    "classification": [
+      "Business Email Compromise",
+      "Executive Impersonation"
+    ],
+    "threatRiskMin": 70,
+    "action": [
+      "block",
+      "quarantine"
+    ]
+  },
+  "tags": [
+    "reply_to_mismatch",
+    "routing_anomaly"
+  ]
+}

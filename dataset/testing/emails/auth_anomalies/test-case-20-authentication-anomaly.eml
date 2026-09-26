@@ -1,0 +1,8 @@
+Authentication-Results: spf=fail (IP 194.26.29.11 is not authorized); dkim=fail (body hash did not verify); dmarc=fail action=reject header.from=enterprise.com
+From: "Chief Executive Officer" <ceo@enterprise.com>
+To: all-staff@enterprise.com
+Subject: Urgent Employee Performance Review and Benefits Document
+Date: Mon, 16 Sep 2026 21:00:00 +0000
+Content-Type: text/html; charset="UTF-8"
+
+<html><body><p>Please log in to the external portal to complete your annual review:</p><p><a href="http://194.26.29.11/portal">Log In</a></p></body></html>

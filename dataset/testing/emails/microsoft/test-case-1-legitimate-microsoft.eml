@@ -1,0 +1,10 @@
+Authentication-Results: spf=pass (sender IP is 40.92.18.10) smtp.mailfrom=microsoft.com; dkim=pass (signature was verified) header.d=microsoft.com; dmarc=pass action=none header.from=microsoft.com;
+Received-SPF: Pass (protection.outlook.com: domain of microsoft.com designates 40.92.18.10 as permitted sender)
+From: "Microsoft Security Team" <account-security-noreply@accountprotection.microsoft.com>
+To: john.doe@enterprise.com
+Subject: Microsoft account security info was updated
+Date: Mon, 16 Sep 2026 09:30:00 +0000
+Message-ID: <MS-SEC-2026-99281@accountprotection.microsoft.com>
+Content-Type: text/html; charset="UTF-8"
+
+<html><body><p>Hello John,</p><p>The security info for your Microsoft account was recently updated. If this was you, you can safely disregard this email.</p><p><a href="https://account.microsoft.com/security">Review your account activity</a></p><p>Thanks,<br>The Microsoft account team</p></body></html>

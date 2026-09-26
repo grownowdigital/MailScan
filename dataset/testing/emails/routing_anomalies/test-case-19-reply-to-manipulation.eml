@@ -1,0 +1,9 @@
+Authentication-Results: spf=fail; dkim=none; dmarc=fail
+From: "Chief Financial Officer" <cfo@enterprise.com>
+Reply-To: cfo.external.drop@protonmail.com
+To: junior.accountant@enterprise.com
+Subject: Quick check on wire capabilities
+Date: Mon, 16 Sep 2026 20:30:00 +0000
+Content-Type: text/plain; charset="UTF-8"
+
+Are you available to process an urgent wire transfer today? Reply directly to this email.

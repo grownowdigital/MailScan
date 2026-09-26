@@ -1,0 +1,24 @@
+{
+  "id": "test-case-1-legitimate-microsoft",
+  "name": "1. Legitimate Microsoft Email",
+  "description": "Authentic Microsoft 365 security notification with valid SPF/DKIM",
+  "category": "Legitimate",
+  "file": "emails/microsoft/test-case-1-legitimate-microsoft.eml",
+  "sha256": "fd9dfea1a577d7cc3273972d33862e8478fb757d1d3538dcb4316bc16d817d39",
+  "groundTruth": "Legitimate",
+  "isHardNegative": false,
+  "expected": {
+    "classification": [
+      "Legitimate"
+    ],
+    "threatRiskMax": 15,
+    "action": [
+      "allow"
+    ]
+  },
+  "tags": [
+    "legitimate",
+    "microsoft",
+    "brand_impersonation_check"
+  ]
+}

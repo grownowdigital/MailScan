@@ -1,0 +1,23 @@
+{
+  "id": "test-case-3-legitimate-bank",
+  "name": "3. Legitimate Bank Transaction",
+  "description": "Authentic corporate banking monthly e-statement with full transport integrity",
+  "category": "Legitimate",
+  "file": "emails/financial/test-case-3-legitimate-bank.eml",
+  "sha256": "7674e2d655000639fda87d9e786c444eb6509d2f6dbf956e76c35a3a5f477aff",
+  "groundTruth": "Legitimate",
+  "isHardNegative": false,
+  "expected": {
+    "classification": [
+      "Legitimate"
+    ],
+    "threatRiskMax": 15,
+    "action": [
+      "allow"
+    ]
+  },
+  "tags": [
+    "legitimate",
+    "financial"
+  ]
+}

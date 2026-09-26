@@ -1,0 +1,25 @@
+{
+  "id": "test-case-16-qr-phishing",
+  "name": "16. QR Phishing (Quishing Attack)",
+  "description": "Embedded QR code lure designed to bypass traditional URL scrapers",
+  "category": "Credential Theft",
+  "file": "emails/quishing/test-case-16-qr-phishing.eml",
+  "sha256": "8958eaaf46b3e2b91973a86b1844a918ba062fc39898c0ce997cc6568b7c74df",
+  "groundTruth": "Phishing",
+  "isHardNegative": false,
+  "expected": {
+    "classification": [
+      "Credential Theft",
+      "Phishing"
+    ],
+    "threatRiskMin": 70,
+    "action": [
+      "block",
+      "quarantine"
+    ]
+  },
+  "tags": [
+    "quishing",
+    "qr_phishing"
+  ]
+}

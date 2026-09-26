@@ -1,0 +1,25 @@
+{
+  "id": "test-case-14-ascii-smuggling",
+  "name": "14. ASCII Smuggling / Zero-Width Attack",
+  "description": "Zero-width Unicode characters used to hide phishing instructions from legacy scanners",
+  "category": "Credential Theft",
+  "file": "emails/ascii_smuggling/test-case-14-ascii-smuggling.eml",
+  "sha256": "1e5ff3ade617ef8c4305e1f36a12a58077f7ae405542b50e7844f7176fcdee8a",
+  "groundTruth": "Phishing",
+  "isHardNegative": false,
+  "expected": {
+    "classification": [
+      "Credential Theft",
+      "Phishing"
+    ],
+    "threatRiskMin": 75,
+    "action": [
+      "block",
+      "quarantine"
+    ]
+  },
+  "tags": [
+    "ascii_smuggling",
+    "hidden_payload"
+  ]
+}
